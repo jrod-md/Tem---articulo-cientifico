@@ -7,9 +7,9 @@
 <meta name="description" content="Simulación numérica y evaluación analítica de la eficiencia de recolección de partículas en un gas mediante precipitadores electrostáticos de alambre y placas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=32">
+<link rel="stylesheet" href="assets/style.css?v=40">
 </head>
 <body>
 
@@ -36,24 +36,23 @@
   </header>
 
   <!-- ======================= 01 PORTADA ======================= -->
-  <section class="slide dark" data-section="Portada" data-on="cover">
+  <section class="slide" data-section="Portada" data-on="cover">
     <div class="cover-sim"><canvas id="coverCanvas"></canvas></div>
-    <div class="frame"><span class="no">TEM · 2026</span></div>
     <div class="cover">
-      <h1 data-r="2">Simulación numérica y evaluación analítica de la eficiencia de recolección de partículas en un gas mediante <em class="grad">precipitadores electrostáticos de alambre y placas</em></h1>
-      <div class="rule" data-r="3"></div>
-      <p class="src" data-r="3">Basado en <b>Kılıç, Mutlu &amp; Altun</b> · Applied Sciences, 2022</p>
+      <h1 data-r="2">Simulación numérica y evaluación analítica de la eficiencia de recolección de partículas en un gas mediante <span class="grad">precipitadores electrostáticos de alambre y placas</span></h1>
+      <div class="chev" data-r="3">&gt;&gt;&gt;&gt;</div>
+      <p class="src" data-r="3">Basado en <b>Kılıç, Mutlu &amp; Altun</b> · <i>Applied Sciences</i>, 2022</p>
     </div>
   </section>
 
   <!-- ======================= 02 RUTA ======================= -->
-  <section class="slide paper" data-section="Ruta">
+  <section class="slide" data-section="Ruta">
     <div class="kicker" data-r="1">Ruta de la exposición</div>
     <h2 data-r="2">Del problema a las conclusiones</h2>
     <p class="lead" data-r="3">Cómo se separan partículas de un gas con electricidad, cómo lo modelaron los autores y qué aprendieron variando el diseño.</p>
     <div class="agenda">
       <div class="card" data-r="4">
-        <div class="rn c-green">I</div>
+        <div class="rn grad">I</div>
         <h3>Contexto</h3>
         <ul><li>Presentación y problema</li><li>Cómo funciona el precipitador</li></ul>
       </div>
@@ -76,7 +75,7 @@
   </section>
 
   <!-- ======================= 03 PRESENTACIÓN Y PROBLEMA ======================= -->
-  <section class="slide dark" data-section="Presentación y problema" data-on="pipe">
+  <section class="slide" data-section="Presentación y problema" data-on="pipe">
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">01</span> Presentación y problema</div>
@@ -100,7 +99,7 @@
   </section>
 
   <!-- ======================= 04 CÓMO FUNCIONA (FIG 1) ======================= -->
-  <section class="slide paper" data-section="Cómo funciona">
+  <section class="slide" data-section="Cómo funciona">
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">02</span> Cómo funciona el precipitador</div>
@@ -125,7 +124,7 @@
   </section>
 
   <!-- ======================= 05 TRES PASOS ======================= -->
-  <section class="slide dark" data-section="Cómo funciona" data-on="steps">
+  <section class="slide" data-section="Cómo funciona" data-on="steps">
     <div class="kicker" data-r="1"><span class="num">02</span> Cómo funciona el precipitador</div>
     <h2 data-r="2">El proceso en tres pasos</h2>
     <div class="chev" data-r="2">&gt;&gt;&gt;&gt;</div>
@@ -158,12 +157,12 @@
   </section>
 
   <!-- ======================= 06 DOS MOVIMIENTOS (SIM) ======================= -->
-  <section class="slide paper" data-section="Cómo funciona" data-on="esp">
+  <section class="slide" data-section="Cómo funciona" data-on="esp">
     <div class="split-7-5" style="grid-template-columns: 8fr 4fr; gap:44px">
       <div data-r="2">
         <div class="sim" style="height:640px">
           <canvas id="espCanvas"></canvas>
-          <div class="legend">Vista superior · esquema</div>
+          <div class="legend">Vista superior · esquema interactivo</div>
         </div>
       </div>
       <div>
@@ -194,7 +193,7 @@
   </section>
 
   <!-- ======================= 07 OBJETIVO Y MÉTODO ======================= -->
-  <section class="slide paper" data-section="Objetivo y método">
+  <section class="slide" data-section="Objetivo y método">
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">03</span> Objetivo y método numérico</div>
@@ -223,7 +222,7 @@
   </section>
 
   <!-- ======================= 08 MALLA (FIG 2) ======================= -->
-  <section class="slide paper" data-section="Objetivo y método" data-on="counters">
+  <section class="slide" data-section="Objetivo y método" data-on="counters">
     <div class="split-7-5">
       <figure class="fig" data-r="2">
         <div class="paper"><img src="assets/img/fig2-malla.png" alt="Figura 2: geometría y malla computacional"></div>
@@ -240,17 +239,17 @@
         <div class="card" data-r="5" style="padding:20px 22px">
           <div class="mono" style="font-size:13px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px">TAMAÑOS DE PARTÍCULA ESTUDIADOS</div>
           <svg viewBox="0 0 460 70" style="width:100%">
-            <line x1="10" y1="34" x2="450" y2="34" stroke="rgba(154,118,52,.2)"/>
-            <g font-family="JetBrains Mono" font-size="11" fill="#8b8775" text-anchor="middle">
-              <line x1="10" y1="28" x2="10" y2="40" stroke="#8b8775"/><text x="10" y="60">0.01</text>
-              <line x1="156.7" y1="28" x2="156.7" y2="40" stroke="#8b8775"/><text x="156.7" y="60">0.1</text>
-              <line x1="303.3" y1="28" x2="303.3" y2="40" stroke="#8b8775"/><text x="303.3" y="60">1</text>
-              <line x1="450" y1="28" x2="450" y2="40" stroke="#8b8775"/><text x="436" y="60">10 µm</text>
+            <line x1="10" y1="34" x2="450" y2="34" stroke="rgba(165, 215, 190,.25)"/>
+            <g font-family="JetBrains Mono" font-size="11" fill="#a9bdb3" text-anchor="middle">
+              <line x1="10" y1="28" x2="10" y2="40" stroke="#61786c"/><text x="10" y="60">0.01</text>
+              <line x1="156.7" y1="28" x2="156.7" y2="40" stroke="#61786c"/><text x="156.7" y="60">0.1</text>
+              <line x1="303.3" y1="28" x2="303.3" y2="40" stroke="#61786c"/><text x="303.3" y="60">1</text>
+              <line x1="450" y1="28" x2="450" y2="40" stroke="#61786c"/><text x="436" y="60">10 µm</text>
             </g>
             <rect class="range-bar" x="54" y="29" width="396" height="10" rx="5" fill="url(#rg)"/>
-            <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#6b6f5a"/><stop offset="1" stop-color="#1d5440"/></linearGradient></defs>
-            <text x="54" y="18" font-family="JetBrains Mono" font-size="12" fill="#142a21" text-anchor="middle">0.02</text>
-            <text x="450" y="18" font-family="JetBrains Mono" font-size="12" fill="#142a21" text-anchor="end">10</text>
+            <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#7fd6e0"/><stop offset="1" stop-color="#4fe3a8"/></linearGradient></defs>
+            <text x="54" y="18" font-family="JetBrains Mono" font-size="12" fill="#ffffff" text-anchor="middle">0.02</text>
+            <text x="450" y="18" font-family="JetBrains Mono" font-size="12" fill="#ffffff" text-anchor="end">10</text>
           </svg>
           <p class="note" style="margin-top:6px">Escala logarítmica · independencia de malla comprobada</p>
         </div>
@@ -259,29 +258,29 @@
   </section>
 
   <!-- ======================= 09 HIPÓTESIS ======================= -->
-  <section class="slide paper" data-section="Hipótesis del modelo">
+  <section class="slide" data-section="Hipótesis del modelo">
     <div class="kicker" data-r="1"><span class="num">04</span> Hipótesis y condiciones del modelo</div>
     <h2 data-r="2">Lo que se fija para poder resolver</h2>
     <div class="hyp">
       <div class="card" data-r="3">
         <h3><span class="i">k·ε</span>Flujo turbulento</h3>
         <p>Estado estacionario, modelo <b style="color:var(--ink)">RNG k-ε</b>.</p>
-        <svg viewBox="0 0 300 70"><path d="M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35" fill="none" stroke="#1d5440" stroke-width="2" opacity=".8"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35;M0 35 C 30 55, 60 15, 90 35 S 150 55, 180 35 S 240 15, 300 35;M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35"/></path><path d="M0 50 C 40 30, 80 65, 120 48 S 200 30, 300 50" fill="none" stroke="#6b6f5a" stroke-width="1.5" opacity=".5"/></svg>
+        <svg viewBox="0 0 300 70"><path d="M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35" fill="none" stroke="#4fe3a8" stroke-width="2" opacity=".8"><animate attributeName="d" dur="4s" repeatCount="indefinite" values="M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35;M0 35 C 30 55, 60 15, 90 35 S 150 55, 180 35 S 240 15, 300 35;M0 35 C 30 10, 60 60, 90 35 S 150 10, 180 35 S 240 60, 300 35"/></path><path d="M0 50 C 40 30, 80 65, 120 48 S 200 30, 300 50" fill="none" stroke="#7fd6e0" stroke-width="1.5" opacity=".5"/></svg>
       </div>
       <div class="card" data-r="4">
         <h3><span class="i">u=0</span>No deslizamiento</h3>
         <p>La velocidad del gas junto a la pared se toma como <b style="color:var(--ink)">cero</b>.</p>
-        <svg viewBox="0 0 300 70"><line x1="20" y1="4" x2="20" y2="66" stroke="#8b8775" stroke-width="3"/><g stroke="#1d5440" stroke-width="1.6"><line x1="20" y1="10" x2="200" y2="10"/><line x1="20" y1="22" x2="190" y2="22"/><line x1="20" y1="34" x2="160" y2="34"/><line x1="20" y1="46" x2="110" y2="46"/><line x1="20" y1="58" x2="50" y2="58"/></g><text x="215" y="62" font-family="JetBrains Mono" font-size="11" fill="#8b8775">pared</text></svg>
+        <svg viewBox="0 0 300 70"><line x1="20" y1="4" x2="20" y2="66" stroke="#a9bdb3" stroke-width="3"/><g stroke="#4fe3a8" stroke-width="1.6"><line x1="20" y1="10" x2="200" y2="10"/><line x1="20" y1="22" x2="190" y2="22"/><line x1="20" y1="34" x2="160" y2="34"/><line x1="20" y1="46" x2="110" y2="46"/><line x1="20" y1="58" x2="50" y2="58"/></g><text x="215" y="62" font-family="JetBrains Mono" font-size="11" fill="#61786c">pared</text></svg>
       </div>
       <div class="card" data-r="5">
         <h3><span class="i">V</span>Potenciales</h3>
         <p>Alambre al <b style="color:var(--ink)">potencial de operación</b>; placas a <b style="color:var(--ink)">0 V</b> (tierra).</p>
-        <svg viewBox="0 0 300 70"><defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#1d5440" stop-opacity=".1"/><stop offset=".5" stop-color="#a87f35" stop-opacity=".9"/><stop offset="1" stop-color="#1d5440" stop-opacity=".1"/></linearGradient></defs><rect x="10" y="20" width="280" height="30" rx="4" fill="url(#pg)"/><line x1="10" y1="10" x2="10" y2="60" stroke="#1d5440" stroke-width="3"/><line x1="290" y1="10" x2="290" y2="60" stroke="#1d5440" stroke-width="3"/><circle cx="150" cy="35" r="5" fill="#a87f35"/></svg>
+        <svg viewBox="0 0 300 70"><defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#4fe3a8" stop-opacity=".1"/><stop offset=".5" stop-color="#f0c35e" stop-opacity=".9"/><stop offset="1" stop-color="#4fe3a8" stop-opacity=".1"/></linearGradient></defs><rect x="10" y="20" width="280" height="30" rx="4" fill="url(#pg)"/><line x1="10" y1="10" x2="10" y2="60" stroke="#4fe3a8" stroke-width="3"/><line x1="290" y1="10" x2="290" y2="60" stroke="#4fe3a8" stroke-width="3"/><circle cx="150" cy="35" r="5" fill="#f0c35e"/></svg>
       </div>
       <div class="card" data-r="6">
         <h3><span class="i">ρ</span>Región de corona</h3>
         <p>La densidad de carga iónica se supone <b style="color:var(--ink)">uniforme</b>.</p>
-        <svg viewBox="0 0 300 70"><circle cx="150" cy="35" r="26" fill="rgba(217,154,43,.12)" stroke="#a87f35" stroke-dasharray="3 4"/><circle cx="150" cy="35" r="5" fill="#a87f35"/><g fill="#a87f35"><circle cx="134" cy="25" r="2"/><circle cx="165" cy="22" r="2"/><circle cx="170" cy="44" r="2"/><circle cx="130" cy="46" r="2"/><circle cx="150" cy="15" r="2"/><circle cx="150" cy="55" r="2"/><circle cx="127" cy="35" r="2"/><circle cx="173" cy="33" r="2"/></g></svg>
+        <svg viewBox="0 0 300 70"><circle cx="150" cy="35" r="26" fill="rgba(240, 195, 94,.12)" stroke="#f0c35e" stroke-dasharray="3 4"/><circle cx="150" cy="35" r="5" fill="#f0c35e"/><g fill="#f0c35e"><circle cx="134" cy="25" r="2"/><circle cx="165" cy="22" r="2"/><circle cx="170" cy="44" r="2"/><circle cx="130" cy="46" r="2"/><circle cx="150" cy="15" r="2"/><circle cx="150" cy="55" r="2"/><circle cx="127" cy="35" r="2"/><circle cx="173" cy="33" r="2"/></g></svg>
       </div>
       <div class="card" data-r="7" style="grid-column: span 2">
         <h3><span class="i">DPM</span>Modelo de fase discreta</h3>
@@ -292,7 +291,7 @@
   </section>
 
   <!-- ======================= 10 ECUACIONES (1) y (3) ======================= -->
-  <section class="slide paper" data-section="Ecuaciones principales">
+  <section class="slide" data-section="Ecuaciones principales">
     <div class="kicker" data-r="1"><span class="num">05</span> Ecuaciones principales y significado físico</div>
     <h2 data-r="2">Masa y campo eléctrico</h2>
     <div class="chev" data-r="2">&gt;&gt;&gt;&gt;</div>
@@ -328,7 +327,7 @@
   </section>
 
   <!-- ======================= 11 ECUACIONES (4) y (12) ======================= -->
-  <section class="slide dark" data-section="Ecuaciones principales">
+  <section class="slide" data-section="Ecuaciones principales">
     <div class="kicker" data-r="1"><span class="num">05</span> Ecuaciones principales y significado físico</div>
     <h2 data-r="2">Carga espacial y fuerza sobre la partícula</h2>
     <div class="row" style="gap:28px;margin-top:18px">
@@ -363,12 +362,12 @@
       <div class="ar"><i style="animation-delay:.6s"></i></div>
       <div class="lk"><div class="t" data-tex="\vec F_c"></div><small>fuerza · ec. 12</small></div>
       <div class="ar"><i style="animation-delay:.9s"></i></div>
-      <div class="lk" style="border-color:rgba(217,154,43,.5)"><div class="t c-amber">↗</div><small>trayectoria</small></div>
+      <div class="lk" style="border-color:rgba(240, 195, 94,.5)"><div class="t c-amber">↗</div><small>trayectoria</small></div>
     </div>
   </section>
 
   <!-- ======================= 12 EFICIENCIA ANALÍTICA ======================= -->
-  <section class="slide dark" data-section="Eficiencia analítica" data-on="gloss">
+  <section class="slide" data-section="Eficiencia analítica" data-on="gloss">
     <div class="kicker" data-r="1"><span class="num">06</span> Eficiencia analítica</div>
     <h2 data-r="2">La expresión propuesta</h2>
     <div class="eq bigeq" data-r="3" style="margin:24px 0 30px">
@@ -385,7 +384,7 @@
   </section>
 
   <!-- ======================= 13 PASO MATEMÁTICO: UNIDADES ======================= -->
-  <section class="slide paper" data-section="Eficiencia analítica">
+  <section class="slide" data-section="Eficiencia analítica">
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">06</span> Paso matemático</div>
@@ -420,7 +419,7 @@
   </section>
 
   <!-- ======================= 14 TENDENCIAS (CALCULADORA) ======================= -->
-  <section class="slide paper" data-section="Eficiencia analítica" data-on="calc">
+  <section class="slide" data-section="Eficiencia analítica" data-on="calc">
     <div class="kicker" data-r="1"><span class="num">06</span> Lo que anticipa la fórmula</div>
     <h2 data-r="2" style="font-size:60px">Competencia: llegar a la placa antes de salir</h2>
     <div class="row" style="gap:40px;margin-top:22px">
@@ -440,13 +439,13 @@
             <div class="mono muted" style="font-size:15.5px;text-align:right">exponente<br><span id="cX" style="color:var(--ink);font-size:24px">—</span></div>
           </div>
           <svg id="etaPlot" viewBox="0 0 560 220" style="width:100%;margin-top:14px">
-            <defs><linearGradient id="ef" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2d6a4f" stop-opacity=".25"/><stop offset="1" stop-color="#2d6a4f" stop-opacity="0"/></linearGradient></defs>
-            <g stroke="rgba(154,118,52,.1)"><line x1="40" y1="20" x2="550" y2="20"/><line x1="40" y1="100" x2="550" y2="100"/><line x1="40" y1="180" x2="550" y2="180"/></g>
-            <g font-family="JetBrains Mono" font-size="11" fill="#8b8775"><text x="8" y="24">100%</text><text x="14" y="104">50%</text><text x="22" y="184">0</text><text x="520" y="205">x = 5</text><text x="40" y="205">0</text></g>
+            <defs><linearGradient id="ef" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c2e36f" stop-opacity=".25"/><stop offset="1" stop-color="#c2e36f" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="rgba(165, 215, 190,.1)"><line x1="40" y1="20" x2="550" y2="20"/><line x1="40" y1="100" x2="550" y2="100"/><line x1="40" y1="180" x2="550" y2="180"/></g>
+            <g font-family="JetBrains Mono" font-size="11" fill="#61786c"><text x="8" y="24">100%</text><text x="14" y="104">50%</text><text x="22" y="184">0</text><text x="520" y="205">x = 5</text><text x="40" y="205">0</text></g>
             <path id="etaArea" fill="url(#ef)"/>
-            <path id="etaCurve" fill="none" stroke="#2d6a4f" stroke-width="2.5"/>
-            <line id="etaV" stroke="#a87f35" stroke-dasharray="4 4"/>
-            <circle id="etaDot" r="7" fill="#a87f35" stroke="#ffffff" stroke-width="3"/>
+            <path id="etaCurve" fill="none" stroke="#c2e36f" stroke-width="2.5"/>
+            <line id="etaV" stroke="#f0c35e" stroke-dasharray="4 4"/>
+            <circle id="etaDot" r="7" fill="#f0c35e" stroke="#04120d" stroke-width="3"/>
           </svg>
         </div>
         <div class="trend" style="margin-top:16px">
@@ -460,7 +459,7 @@
   </section>
 
   <!-- ======================= 15 VALIDACIÓN ======================= -->
-  <section class="slide paper" data-section="Validación">
+  <section class="slide" data-section="Validación">
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">07</span> Validación del modelo</div>
@@ -471,7 +470,7 @@
           <li>Potencial calculado vs. <b>datos experimentales</b> publicados, en varias posiciones del equipo.</li>
           <li>Eficiencia comparada con estudios experimentales previos (Figuras 4 y 5): <b>concordancia general buena</b>.</li>
         </ul>
-        <div class="card" style="margin-top:26px;padding:18px 22px;border-color:rgba(217,154,43,.3)" data-r="5">
+        <div class="card" style="margin-top:26px;padding:18px 22px;border-color:rgba(240, 195, 94,.3)" data-r="5">
           <p style="font-size:17.5px">Apoya usar el modelo para <b style="color:var(--ink)">explorar tendencias</b>. No significa que cada configuración posterior se haya construido y medido.</p>
         </div>
       </div>
@@ -483,7 +482,7 @@
   </section>
 
   <!-- ======================= 16 CONDICIONES OPERATIVAS ======================= -->
-  <section class="slide dark" data-section="Condiciones operativas" data-on="counters">
+  <section class="slide" data-section="Condiciones operativas" data-on="counters">
     <div class="kicker" data-r="1"><span class="num">08</span> Condiciones operativas que variaron</div>
     <h2 data-r="2">Cuatro parámetros, muchas combinaciones</h2>
     <div class="params">
@@ -502,7 +501,7 @@
   </section>
 
   <!-- ======================= 17 CAMPO (FIGS 7 y 9) ======================= -->
-  <section class="slide paper" data-section="Campo y trayectorias">
+  <section class="slide" data-section="Campo y trayectorias">
     <div class="kicker" data-r="1"><span class="num">09</span> Qué muestran el campo y las trayectorias</div>
     <h2 data-r="2">Potencial y campo eléctrico</h2>
     <p class="lead" data-r="3" style="max-width:1100px">Los valores más intensos aparecen <b>cerca de los alambres</b> y disminuyen hacia las placas a tierra. Ahí, las partículas encuentran condiciones de carga más intensas.</p>
@@ -519,7 +518,7 @@
   </section>
 
   <!-- ======================= 18 TRAYECTORIAS (FIG 10) ======================= -->
-  <section class="slide paper" data-section="Campo y trayectorias">
+  <section class="slide" data-section="Campo y trayectorias">
     <div class="split-7-5" style="grid-template-columns: 6fr 5fr">
       <div>
         <div class="kicker" data-r="1"><span class="num">09</span> Trayectorias de partículas</div>
@@ -544,7 +543,7 @@
   </section>
 
   <!-- ======================= 19 MPPS (FIG 11) ======================= -->
-  <section class="slide paper" data-section="Captura más difícil">
+  <section class="slide" data-section="Captura más difícil">
     <div class="kicker" data-r="1"><span class="num">10</span> El intervalo de captura más difícil y el modelo analítico</div>
     <h2 data-r="2">El mínimo de la curva: <span class="grad">MPPS</span></h2>
     <div class="row" style="gap:36px;margin-top:16px;align-items:flex-start">
@@ -556,25 +555,25 @@
         <div class="band card" data-r="5" style="margin-top:18px;padding:16px 22px">
           <svg viewBox="0 0 800 92">
             <defs>
-              <linearGradient id="bd" x1="0" x2="1"><stop offset="0" stop-color="#6b6f5a"/><stop offset=".5" stop-color="#a23b3b"/><stop offset="1" stop-color="#1d5440"/></linearGradient>
+              <linearGradient id="bd" x1="0" x2="1"><stop offset="0" stop-color="#7fd6e0"/><stop offset=".5" stop-color="#ff6b7a"/><stop offset="1" stop-color="#4fe3a8"/></linearGradient>
             </defs>
             <rect x="20" y="40" width="760" height="8" rx="4" fill="url(#bd)" opacity=".55"/>
-            <rect x="217" y="30" width="84" height="28" rx="6" fill="rgba(207,64,88,.18)" stroke="#a23b3b">
+            <rect x="217" y="30" width="84" height="28" rx="6" fill="rgba(255,107,122,.18)" stroke="#ff6b7a">
               <animate attributeName="opacity" values="1;.5;1" dur="2.4s" repeatCount="indefinite"/>
             </rect>
             <g font-family="JetBrains Mono" font-size="13">
-              <text x="20" y="22" fill="#6b6f5a">← domina la difusión de iones</text>
-              <text x="780" y="22" fill="#1d5440" text-anchor="end">domina la carga por campo →</text>
-              <text x="259" y="82" fill="#a23b3b" text-anchor="middle">0.1 – 0.2 µm</text>
-              <text x="20" y="82" fill="#8b8775">0.02 µm</text>
-              <text x="780" y="82" fill="#8b8775" text-anchor="end">10 µm</text>
+              <text x="20" y="22" fill="#7fd6e0">← domina la difusión de iones</text>
+              <text x="780" y="22" fill="#4fe3a8" text-anchor="end">domina la carga por campo →</text>
+              <text x="259" y="82" fill="#ff6b7a" text-anchor="middle">0.1 – 0.2 µm</text>
+              <text x="20" y="82" fill="#61786c">0.02 µm</text>
+              <text x="780" y="82" fill="#61786c" text-anchor="end">10 µm</text>
             </g>
           </svg>
         </div>
       </div>
       <div class="grow col" style="gap:18px">
         <div class="card" data-r="4">
-          <span class="tag" style="color:var(--red);border-color:rgba(207,64,88,.4);background:rgba(207,64,88,.08)">Máxima penetración</span>
+          <span class="tag" style="color:var(--red);border-color:rgba(255,107,122,.4);background:rgba(255,107,122,.08)">Máxima penetración</span>
           <p style="margin-top:12px;font-size:18.5px">La eficiencia baja, llega a un mínimo y vuelve a subir. Alrededor de <b style="color:var(--ink)">0.1–0.2 µm</b> se captura la menor proporción: es lo que más escapa.</p>
         </div>
         <div class="card" data-r="5">
@@ -592,9 +591,9 @@
   </section>
 
   <!-- ======================= 20 EFECTO DEL DISEÑO (FIGS 12, 14) ======================= -->
-  <section class="slide paper" data-section="Diseño y energía">
+  <section class="slide" data-section="Diseño y energía">
     <div class="kicker" data-r="1"><span class="num">11</span> Efecto del diseño y consumo de energía</div>
-    <h2 data-r="2" style="font-size:58px;margin-bottom:10px">Cuatro tendencias</h2>
+    <h2 data-r="2">Cuatro tendencias</h2>
     <div class="row" style="gap:32px;margin-top:14px;align-items:flex-start">
       <div class="tg" style="flex:1">
         <div class="card" data-r="3"><div class="ttl"><span class="ic">↑V</span>Más voltaje</div><p>Generalmente aumenta la eficiencia.</p></div>
@@ -616,7 +615,7 @@
   </section>
 
   <!-- ======================= 21 CONSUMO DE ENERGÍA (FIGS 17, 18) ======================= -->
-  <section class="slide paper" data-section="Diseño y energía" data-on="counters">
+  <section class="slide" data-section="Diseño y energía" data-on="counters">
     <div class="kicker" data-r="1"><span class="num">11</span> Efecto del diseño y consumo de energía</div>
     <h2 data-r="2">Capturar más cuesta energía</h2>
     <div class="row" style="gap:32px;margin-top:18px;align-items:flex-start">
@@ -641,7 +640,7 @@
           <div class="paper"><img src="assets/img/fig18-potencia.png" alt="Figura 18: consumo relativo de potencia"></div>
           <figcaption><b>Figura 18.</b> Consumo relativo de potencia según voltaje y diámetro del alambre. Fuente: artículo base.</figcaption>
         </figure>
-        <div class="card" data-r="6" style="padding:18px 22px;border-color:rgba(217,154,43,.3)">
+        <div class="card" data-r="6" style="padding:18px 22px;border-color:rgba(240, 195, 94,.3)">
           <p style="font-size:18.5px">No basta con maximizar la captura: también hay que considerar <b style="color:var(--ink)">la energía necesaria</b>.</p>
         </div>
       </div>
@@ -649,7 +648,7 @@
   </section>
 
   <!-- ======================= 22 INTERPRETACIÓN Y UTILIDAD ======================= -->
-  <section class="slide dark" data-section="Interpretación y utilidad">
+  <section class="slide" data-section="Interpretación y utilidad">
     <div class="kicker" data-r="1"><span class="num">12</span> Interpretación de resultados y utilidad</div>
     <h2 data-r="2">Lo que dicen los resultados en conjunto</h2>
     <div class="row" style="gap:24px;margin-top:30px">
@@ -675,21 +674,20 @@
   </section>
 
   <!-- ======================= 23 CONCLUSIONES ======================= -->
-  <section class="slide dark" data-section="Conclusiones" data-on="outro">
+  <section class="slide" data-section="Conclusiones" data-on="outro">
     <div class="cover-sim"><canvas id="outroCanvas"></canvas></div>
-    <div class="frame"><span class="no">Nº 23</span></div>
-    <div class="cover" style="max-width:960px">
+    <div class="cover" style="max-width:1000px">
       <div class="kicker" data-r="1"><span class="num">12</span> Conclusiones</div>
-      <h2 data-r="2" style="font-size:62px">Una herramienta para estimar la recolección <em class="grad">y saber qué la afecta</em></h2>
+      <h2 data-r="2" style="font-size:71px">Una herramienta para estimar la recolección <span class="grad">y saber qué la afecta</span></h2>
       <ul class="bul" style="margin-top:26px;max-width:860px" data-r="3">
         <li>El modelo analítico difiere <b>menos de 10%</b> de la simulación 3D en los casos comparados.</li>
         <li>Su aporte práctico: valorar la <b>eficiencia</b> junto con el <b>consumo de potencia</b> y las condiciones de funcionamiento.</li>
       </ul>
-      <div data-r="4" style="margin-top:40px;display:flex;align-items:baseline;gap:28px">
-        <span style="font-family:var(--serif);font-style:italic;font-size:60px">Gracias.</span>
-        <span class="mono" style="font-size:13px;letter-spacing:.3em;color:var(--amber)">¿PREGUNTAS?</span>
+      <div data-r="4" style="margin-top:46px;display:flex;align-items:baseline;gap:28px">
+        <span style="font-family:var(--display);font-size:63px;font-weight:600;letter-spacing:-.02em">Muchas gracias</span>
+        <span class="mono muted" style="font-size:16.5px;letter-spacing:.12em">¿PREGUNTAS?</span>
       </div>
-      <p class="note" style="margin-top:34px;max-width:900px" data-r="5">Fuente: Kılıç, M.; Mutlu, M.; Altun, A. F. “Numerical Simulation and Analytical Evaluation of the Efficiency of Particle Collection in a Gas by Wire-Plate Electrostatic Precipitators”. <i>Applied Sciences</i>, 2022, 12, 6401. DOI: 10.3390/app12136401</p>
+      <p class="note" style="margin-top:40px;max-width:900px" data-r="5">Fuente: Kılıç, M.; Mutlu, M.; Altun, A. F. “Numerical Simulation and Analytical Evaluation of the Efficiency of Particle Collection in a Gas by Wire-Plate Electrostatic Precipitators”. <i>Applied Sciences</i>, 2022, 12, 6401. DOI: 10.3390/app12136401</p>
     </div>
   </section>
 
@@ -708,6 +706,6 @@
 <div id="lightbox"><img alt=""></div>
 
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script src="assets/app.js?v=32"></script>
+<script src="assets/app.js?v=40"></script>
 </body>
 </html>
