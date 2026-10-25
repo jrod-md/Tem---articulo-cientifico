@@ -4,7 +4,7 @@ Presentación interactiva (HTML) del artículo *"Simulación numérica y evaluac
 
 ## Ver
 
-Abrir `index.html` con un servidor local (por ejemplo `python -m http.server`) o publicar con GitHub Pages (Settings → Pages → rama `main`, carpeta raíz).
+Abrir `index.html` con un servidor local (por ejemplo `python -m http.server`) o publicar con Cloudflare Pages conectado a este repo.
 
 ## Controles
 
@@ -15,3 +15,7 @@ Abrir `index.html` con un servidor local (por ejemplo `python -m http.server`) o
 ## Editar integrantes
 
 En `index.html`, sección `01 PORTADA`, bloque `<!-- Integrantes -->`.
+
+## Cloudflare Pages
+
+Framework preset: None · Build command: vacío · Build output directory: `/` · Root directory: `/`.
