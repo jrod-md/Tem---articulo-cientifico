@@ -750,6 +750,10 @@
   fitStage();
   const start = clamp((parseInt(location.hash.slice(1), 10) || 1) - 1, 0, N - 1);
   go(start, { fresh: true });
+  addEventListener('hashchange', () => {
+    const n = parseInt(location.hash.slice(1), 10);
+    if (n) go(n - 1, { fresh: true });
+  });
   requestAnimationFrame(loop);
   if (document.fonts) document.fonts.ready.then(() => canvases.forEach(c => c.resize()));
 })();

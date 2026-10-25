@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="stylesheet" href="assets/style.css?v=13">
 </head>
 <body>
 
@@ -46,7 +46,6 @@
 
       <!-- Integrantes -->
       <div class="team" data-r="4">
-        <div class="lbl">Integrantes</div>
         <div class="member"><div class="nm">Yanesis Valdés</div></div>
         <div class="member"><div class="nm">Victor Contreras</div></div>
       </div>
@@ -87,16 +86,15 @@
     <div class="split-5-7">
       <div>
         <div class="kicker" data-r="1"><span class="num">01</span> Presentación y problema</div>
-        <h2 data-r="2">Partículas suspendidas en un gas</h2>
-        <div class="chev" data-r="2">&gt;&gt;&gt;&gt;</div>
+        <h2 data-r="2" style="font-size:62px;margin-bottom:26px">Partículas suspendidas en un gas</h2>
         <ul class="bul" data-r="3">
           <li>Los gases de procesos industriales arrastran <b>partículas</b> que hay que retirar.</li>
           <li>El precipitador usa <b>electricidad</b> para separarlas del gas.</li>
           <li>Su eficiencia depende de la <b>operación</b> y la <b>geometría</b>; probar cada combinación físicamente es costoso.</li>
         </ul>
-        <div class="card glow" style="margin-top:30px" data-r="4">
+        <div class="card glow" style="margin-top:22px;padding:20px 24px" data-r="4">
           <span class="tag amber">Estrategia de los autores</span>
-          <p style="margin-top:12px;color:var(--ink);font-size:19px">Simulación <b class="c-cyan">tridimensional</b> + un <b class="c-amber">modelo analítico</b> más sencillo.</p>
+          <p style="margin-top:12px;color:var(--ink);font-size:20.5px">Simulación <b class="c-cyan">tridimensional</b> + un <b class="c-amber">modelo analítico</b> más sencillo.</p>
         </div>
       </div>
       <div data-r="3">
@@ -176,9 +174,9 @@
       </div>
       <div>
         <div class="kicker" data-r="1"><span class="num">02</span> La idea clave</div>
-        <h2 data-r="2" style="font-size:50px">Dos movimientos a la vez</h2>
-        <p class="muted" style="font-size:18px;margin-bottom:26px" data-r="3">El gas arrastra la partícula <b class="c-cyan">a lo largo</b> del canal; la fuerza eléctrica la empuja <b class="c-amber">hacia un costado</b>. Gana la captura si llega a la placa antes de salir.</p>
-        <div class="ctrls" data-r="4">
+        <h2 data-r="2" style="font-size:52px">Dos movimientos a la vez</h2>
+        <p class="muted" style="font-size:19.5px;margin-bottom:26px" data-r="3">El gas arrastra la partícula <b class="c-cyan">a lo largo</b> del canal; la fuerza eléctrica la empuja <b class="c-amber">hacia un costado</b>. Gana la captura si llega a la placa antes de salir.</p>
+        <div class="ctrls" data-r="4" style="gap:16px">
           <div class="ctrl">
             <label><span>Voltaje aplicado</span> <output id="oV">45 kV</output></label>
             <div class="seg" data-ctrl="V"><button data-v="0">0</button><button data-v="35">35</button><button data-v="45" class="on">45</button><button data-v="55">55</button></div>
@@ -239,14 +237,14 @@
       </figure>
       <div>
         <div class="kicker" data-r="1"><span class="num">03</span> Método numérico</div>
-        <h2 data-r="2" style="font-size:52px">La malla computacional</h2>
-        <p class="muted" style="font-size:19px" data-r="3">El interior se divide en pequeñas celdas donde se calculan las magnitudes físicas. Es <b style="color:var(--ink)">más fina cerca de los alambres</b>, donde el campo y la densidad de corriente cambian rápido.</p>
+        <h2 data-r="2" style="font-size:58px">La malla computacional</h2>
+        <p class="muted" style="font-size:20.5px" data-r="3">El interior se divide en pequeñas celdas donde se calculan las magnitudes físicas. Es <b style="color:var(--ink)">más fina cerca de los alambres</b>, donde el campo y la densidad de corriente cambian rápido.</p>
         <div class="row" style="gap:40px;margin:30px 0 26px" data-r="4">
           <div class="stat"><div class="v grad">≈<span data-count="2" data-dec="0">0</span>M</div><div class="l">elementos</div></div>
           <div class="stat"><div class="v c-cyan">19.2</div><div class="l">ANSYS Fluent</div></div>
         </div>
         <div class="card" data-r="5" style="padding:20px 22px">
-          <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px">TAMAÑOS DE PARTÍCULA ESTUDIADOS</div>
+          <div class="mono" style="font-size:13px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px">TAMAÑOS DE PARTÍCULA ESTUDIADOS</div>
           <svg viewBox="0 0 460 70" style="width:100%">
             <line x1="10" y1="34" x2="450" y2="34" stroke="rgba(160,190,230,.25)"/>
             <g font-family="JetBrains Mono" font-size="11" fill="#93a3bd" text-anchor="middle">
@@ -294,7 +292,7 @@
       <div class="card" data-r="7" style="grid-column: span 2">
         <h3><span class="i">DPM</span>Modelo de fase discreta</h3>
         <p>Cada partícula se sigue con el modelo de fase discreta de Fluent, sumando <b style="color:var(--ink)">arrastre</b>, <b style="color:var(--ink)">gravedad</b> y <b style="color:var(--ink)">fuerza eléctrica</b>.</p>
-        <p class="note" style="margin-top:14px;font-size:13px">Estas hipótesis delimitan la lectura: describen el modelo y las condiciones analizadas, no todas las configuraciones posibles de un equipo real.</p>
+        <p class="note" style="margin-top:14px;font-size:14px">Estas hipótesis delimitan la lectura: describen el modelo y las condiciones analizadas, no todas las configuraciones posibles de un equipo real.</p>
       </div>
     </div>
   </section>
@@ -421,7 +419,7 @@
         </div>
         <div class="ur final" data-frag>
           <span class="k">Resultado</span>
-          <span style="font-size:20px">Exponente <b>adimensional</b> ⇒ <span data-tex="\eta"></span> también sin unidades ✓</span>
+          <span style="font-size:22px">Exponente <b>adimensional</b> ⇒ <span data-tex="\eta"></span> también sin unidades ✓</span>
         </div>
       </div>
     </div>
@@ -430,7 +428,7 @@
   <!-- ======================= 14 TENDENCIAS (CALCULADORA) ======================= -->
   <section class="slide" data-section="Eficiencia analítica" data-on="calc">
     <div class="kicker" data-r="1"><span class="num">06</span> Lo que anticipa la fórmula</div>
-    <h2 data-r="2">Competencia: llegar a la placa antes de salir</h2>
+    <h2 data-r="2" style="font-size:60px">Competencia: llegar a la placa antes de salir</h2>
     <div class="row" style="gap:40px;margin-top:22px">
       <div class="card grow" data-r="3" style="flex:1.05">
         <div class="ctrls">
@@ -445,7 +443,7 @@
         <div class="card" style="padding:22px 26px">
           <div class="row" style="justify-content:space-between;align-items:flex-end">
             <div class="readout"><div class="big" id="cEta">—</div><div class="lbl">eficiencia η</div></div>
-            <div class="mono muted" style="font-size:14px;text-align:right">exponente<br><span id="cX" style="color:var(--ink);font-size:22px">—</span></div>
+            <div class="mono muted" style="font-size:15.5px;text-align:right">exponente<br><span id="cX" style="color:var(--ink);font-size:24px">—</span></div>
           </div>
           <svg id="etaPlot" viewBox="0 0 560 220" style="width:100%;margin-top:14px">
             <defs><linearGradient id="ef" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5ef0b0" stop-opacity=".25"/><stop offset="1" stop-color="#5ef0b0" stop-opacity="0"/></linearGradient></defs>
@@ -480,7 +478,7 @@
           <li>Eficiencia comparada con estudios experimentales previos (Figuras 4 y 5): <b>concordancia general buena</b>.</li>
         </ul>
         <div class="card" style="margin-top:26px;padding:18px 22px;border-color:rgba(255,184,77,.3)" data-r="5">
-          <p style="font-size:16px">Apoya usar el modelo para <b style="color:var(--ink)">explorar tendencias</b>. No significa que cada configuración posterior se haya construido y medido.</p>
+          <p style="font-size:17.5px">Apoya usar el modelo para <b style="color:var(--ink)">explorar tendencias</b>. No significa que cada configuración posterior se haya construido y medido.</p>
         </div>
       </div>
       <figure class="fig" data-r="3">
@@ -536,7 +534,7 @@
         <div class="card glow" data-r="3" style="padding:18px 22px;margin-bottom:24px">
           <div class="row" style="gap:16px;align-items:center">
             <div style="width:180px;height:12px;border-radius:6px;background:linear-gradient(90deg,#1d39ff,#19d3ff,#2bff6a,#ffe600,#ff2a00);flex:none"></div>
-            <p style="font-size:17px">El color es <b style="color:var(--ink)">tiempo de residencia</b>, no eficiencia de captura.</p>
+            <p style="font-size:18.5px">El color es <b style="color:var(--ink)">tiempo de residencia</b>, no eficiencia de captura.</p>
           </div>
         </div>
         <ul class="bul" data-r="4">
@@ -545,7 +543,7 @@
         </ul>
       </div>
       <figure class="fig" data-r="3" style="align-self:center">
-        <div class="paper" style="max-height:690px;padding:10px"><img src="assets/img/fig10-trayectorias.png" alt="Figura 10: trayectorias según el tiempo de residencia" style="max-height:670px;width:auto;margin:0 auto"></div>
+        <div class="paper" style="max-height:600px;padding:10px"><img src="assets/img/fig10-trayectorias.png" alt="Figura 10: trayectorias según el tiempo de residencia" style="max-height:580px;width:auto;margin:0 auto"></div>
         <figcaption><b>Figura 10.</b> Trayectorias y tiempo de residencia para varios tamaños de partícula. Fuente: artículo base.</figcaption>
       </figure>
     </div>
@@ -583,16 +581,16 @@
       <div class="grow col" style="gap:18px">
         <div class="card" data-r="4">
           <span class="tag" style="color:var(--red);border-color:rgba(255,107,122,.4);background:rgba(255,107,122,.08)">Máxima penetración</span>
-          <p style="margin-top:12px;font-size:17px">La eficiencia baja, llega a un mínimo y vuelve a subir. Alrededor de <b style="color:var(--ink)">0.1–0.2 µm</b> se captura la menor proporción: es lo que más escapa.</p>
+          <p style="margin-top:12px;font-size:18.5px">La eficiencia baja, llega a un mínimo y vuelve a subir. Alrededor de <b style="color:var(--ink)">0.1–0.2 µm</b> se captura la menor proporción: es lo que más escapa.</p>
         </div>
         <div class="card" data-r="5">
           <span class="tag violet">Por qué</span>
-          <p style="margin-top:12px;font-size:17px">En partículas grandes pesa la <b style="color:var(--ink)">carga por campo</b>; en las muy pequeñas, la <b style="color:var(--ink)">difusión de iones</b>. Entre ambas quedan las difíciles.</p>
+          <p style="margin-top:12px;font-size:18.5px">En partículas grandes pesa la <b style="color:var(--ink)">carga por campo</b>; en las muy pequeñas, la <b style="color:var(--ink)">difusión de iones</b>. Entre ambas quedan las difíciles.</p>
         </div>
         <div class="card glow" data-r="6">
           <div class="row" style="gap:18px;align-items:center">
             <div class="bigpct c-green">&lt;10%</div>
-            <p style="font-size:16px">diferencia entre el modelo analítico y el CFD 3D en los casos comparados, dentro de su rango de aplicación.</p>
+            <p style="font-size:17.5px">diferencia entre el modelo analítico y el CFD 3D en los casos comparados, dentro de su rango de aplicación.</p>
           </div>
         </div>
       </div>
@@ -610,7 +608,7 @@
         <div class="card" data-r="5"><div class="ttl"><span class="ic">↓S</span>Menor separación</div><p>De 115 a 90 mm mejora la recolección.</p></div>
         <div class="card" data-r="6"><div class="ttl"><span class="ic">↑d</span>Alambre más grueso</div><p>También mejora η en los casos analizados.</p></div>
       </div>
-      <div class="col" style="flex:1.35;gap:18px">
+      <div class="col" style="flex:1.05;gap:14px">
         <figure class="fig" data-r="4">
           <div class="paper" style="padding:10px"><img src="assets/img/fig12-alambre03.png" alt="Figura 12: eficiencia con alambre de 0.3 mm"></div>
           <figcaption><b>Figura 12.</b> Alambre de 0.3 mm, separación 115 mm.</figcaption>
@@ -636,11 +634,11 @@
         <div class="row" style="gap:18px" data-r="5">
           <div class="card grow" style="padding:20px 22px">
             <div class="bigpct c-amber">+<span data-count="20">0</span>%</div>
-            <p style="font-size:15px;margin-top:8px">potencia de un alambre de <b style="color:var(--ink)">1 mm</b> vs. 0.3 mm, a igual voltaje</p>
+            <p style="font-size:16.5px;margin-top:8px">potencia de un alambre de <b style="color:var(--ink)">1 mm</b> vs. 0.3 mm, a igual voltaje</p>
           </div>
           <div class="card grow" style="padding:20px 22px">
             <div class="bigpct c-cyan">+<span data-count="35">0</span>%</div>
-            <p style="font-size:15px;margin-top:8px">potencia de un alambre de <b style="color:var(--ink)">2 mm</b> vs. 0.3 mm, a igual voltaje</p>
+            <p style="font-size:16.5px;margin-top:8px">potencia de un alambre de <b style="color:var(--ink)">2 mm</b> vs. 0.3 mm, a igual voltaje</p>
           </div>
         </div>
       </div>
@@ -650,7 +648,7 @@
           <figcaption><b>Figura 18.</b> Consumo relativo de potencia según voltaje y diámetro del alambre. Fuente: artículo base.</figcaption>
         </figure>
         <div class="card" data-r="6" style="padding:18px 22px;border-color:rgba(255,184,77,.3)">
-          <p style="font-size:17px">No basta con maximizar la captura: también hay que considerar <b style="color:var(--ink)">la energía necesaria</b>.</p>
+          <p style="font-size:18.5px">No basta con maximizar la captura: también hay que considerar <b style="color:var(--ink)">la energía necesaria</b>.</p>
         </div>
       </div>
     </div>
@@ -675,9 +673,9 @@
     <div class="card glow" data-r="5" style="margin-top:24px;padding:26px 30px">
       <span class="tag">Aporte a la Ingeniería Electromecánica</span>
       <div class="row" style="gap:36px;margin-top:18px">
-        <p class="grow" style="font-size:18px">Comparar combinaciones de <b style="color:var(--ink)">voltaje, geometría y velocidad del gas</b> antes de modificar o fabricar un equipo.</p>
-        <p class="grow" style="font-size:18px"><b class="c-cyan">CFD 3D</b> muestra el detalle; el <b class="c-amber">modelo analítico</b> da estimaciones rápidas para orientar qué opciones estudiar a fondo.</p>
-        <p class="grow" style="font-size:18px">No reemplaza la comprobación en el equipo real, pero apoya decisiones de diseño <b style="color:var(--ink)">con más información</b>.</p>
+        <p class="grow" style="font-size:19.5px">Comparar combinaciones de <b style="color:var(--ink)">voltaje, geometría y velocidad del gas</b> antes de modificar o fabricar un equipo.</p>
+        <p class="grow" style="font-size:19.5px"><b class="c-cyan">CFD 3D</b> muestra el detalle; el <b class="c-amber">modelo analítico</b> da estimaciones rápidas para orientar qué opciones estudiar a fondo.</p>
+        <p class="grow" style="font-size:19.5px">No reemplaza la comprobación en el equipo real, pero apoya decisiones de diseño <b style="color:var(--ink)">con más información</b>.</p>
       </div>
     </div>
   </section>
@@ -687,14 +685,14 @@
     <div class="cover-sim"><canvas id="outroCanvas"></canvas></div>
     <div class="cover" style="max-width:1000px">
       <div class="kicker" data-r="1"><span class="num">12</span> Conclusiones</div>
-      <h2 data-r="2" style="font-size:66px">Una herramienta para estimar la recolección <span class="grad">y saber qué la afecta</span></h2>
+      <h2 data-r="2" style="font-size:71px">Una herramienta para estimar la recolección <span class="grad">y saber qué la afecta</span></h2>
       <ul class="bul" style="margin-top:26px;max-width:860px" data-r="3">
         <li>El modelo analítico difiere <b>menos de 10%</b> de la simulación 3D en los casos comparados.</li>
         <li>Su aporte práctico: valorar la <b>eficiencia</b> junto con el <b>consumo de potencia</b> y las condiciones de funcionamiento.</li>
       </ul>
       <div data-r="4" style="margin-top:46px;display:flex;align-items:baseline;gap:28px">
-        <span style="font-family:var(--display);font-size:56px;font-weight:600;letter-spacing:-.02em">Muchas gracias</span>
-        <span class="mono muted" style="font-size:15px;letter-spacing:.12em">¿PREGUNTAS?</span>
+        <span style="font-family:var(--display);font-size:63px;font-weight:600;letter-spacing:-.02em">Muchas gracias</span>
+        <span class="mono muted" style="font-size:16.5px;letter-spacing:.12em">¿PREGUNTAS?</span>
       </div>
       <p class="note" style="margin-top:40px;max-width:900px" data-r="5">Fuente: Kılıç, M.; Mutlu, M.; Altun, A. F. “Numerical Simulation and Analytical Evaluation of the Efficiency of Particle Collection in a Gas by Wire-Plate Electrostatic Precipitators”. <i>Applied Sciences</i>, 2022, 12, 6401. DOI: 10.3390/app12136401</p>
     </div>
@@ -715,6 +713,6 @@
 <div id="lightbox"><img alt=""></div>
 
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script src="assets/app.js?v=8"></script>
+<script src="assets/app.js?v=13"></script>
 </body>
 </html>
