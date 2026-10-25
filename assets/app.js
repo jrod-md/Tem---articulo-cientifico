@@ -56,38 +56,23 @@
   /* ---------------- Background ---------------- */
   const bg = (() => {
     const c = $('#bg'), ctx = c.getContext('2d');
-    let w, h, specks = [], waves = [];
+    let w, h, specks = [];
     function resize() {
       const q = Math.min(2, devicePixelRatio || 1);
       w = innerWidth; h = innerHeight;
       c.width = w * q; c.height = h * q;
       ctx.setTransform(q, 0, 0, q, 0, 0);
-      specks = Array.from({ length: Math.round(w * h / 26000) }, () => ({
-        x: rand(0, w), y: rand(0, h), r: rand(1, 3.2), vx: rand(5, 16), ph: rand(0, TAU),
-        a: rand(.18, .5), gold: Math.random() < .28
+      specks = Array.from({ length: Math.round(w * h / 30000) }, () => ({
+        x: rand(0, w), y: rand(0, h), r: rand(.5, 1.6), vx: rand(4, 12), ph: rand(0, TAU), a: rand(.15, .45)
       }));
-      waves = Array.from({ length: 5 }, (_, i) => ({ y: h * (.15 + i * .18), amp: rand(18, 46), k: rand(.0025, .005), sp: rand(.15, .35), ph: rand(0, TAU) }));
     }
-    function tick(dt, t) {
+    function tick(dt) {
       ctx.clearRect(0, 0, w, h);
-      // gentle air currents
-      ctx.lineWidth = 1.4;
-      for (const wv of waves) {
-        ctx.strokeStyle = 'rgba(5,150,105,0.07)';
-        ctx.beginPath();
-        for (let x = 0; x <= w; x += 12) {
-          const y = wv.y + Math.sin(x * wv.k + t * wv.sp + wv.ph) * wv.amp;
-          x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-        }
-        ctx.stroke();
-      }
-      // floating specks (clean air)
       for (const d of specks) {
-        d.x += d.vx * dt; d.ph += dt * .8;
-        const y = d.y + Math.sin(d.ph) * 6;
+        d.x += d.vx * dt; d.ph += dt * .7;
         if (d.x > w + 5) { d.x = -5; d.y = rand(0, h); }
-        ctx.fillStyle = d.gold ? `rgba(224,166,60,${d.a})` : `rgba(16,185,129,${d.a})`;
-        ctx.beginPath(); ctx.arc(d.x, y, d.r, 0, TAU); ctx.fill();
+        ctx.fillStyle = `rgba(201,164,92,${d.a})`;
+        ctx.beginPath(); ctx.arc(d.x, d.y + Math.sin(d.ph) * 5, d.r, 0, TAU); ctx.fill();
       }
     }
     addEventListener('resize', resize);
@@ -107,7 +92,7 @@
     }
     geo() {
       const { w, h } = this;
-      const x0 = this.ambient ? -10 : 70;
+      const x0 = this.ambient ? w * 0.18 : 70;
       const x1 = this.ambient ? w + 10 : w - 50;
       const cy = h / 2;
       const ref = h * (this.ambient ? 0.3 : 0.34);
@@ -120,7 +105,7 @@
     spawn(G) {
       this.parts.push({
         x: G.x0 - rand(0, 30), y: G.cy + rand(-.96, .96) * G.hw,
-        q: 0, m: rand(.5, 1.5), r: rand(1.1, 2.6), n: rand(0, TAU)
+        q: 0, m: rand(.5, 1.5), r: rand(1.2, 2.8), n: rand(0, TAU)
       });
     }
     record(c) {
@@ -131,7 +116,7 @@
       const G = this.geo();
       const L = G.x1 - G.x0, base = L / 2.6;
       const Vn = this.V / 55;
-      this.acc += dt * (this.ambient ? 38 : 60) * this.U;
+      this.acc += dt * (this.ambient ? 90 : 60) * this.U;
       while (this.acc > 1) { this.acc--; this.spawn(G); }
       const keep = [];
       for (const p of this.parts) {
@@ -152,7 +137,7 @@
         p.x += vx * dt; p.y += vy * dt;
         if (Math.abs(p.y - G.cy) >= G.hw) {
           if (p.q > 0.06) {
-            this.stuck.push({ x: p.x, y: G.cy + sg * G.hw, life: 0, r: p.r });
+            this.stuck.push({ x: p.x, y: G.cy + sg * (G.hw - rand(0, 3.5)), life: 0, r: p.r });
             this.record(true);
             continue;
           }
@@ -163,8 +148,8 @@
       }
       this.parts = keep;
       for (const s of this.stuck) s.life += dt;
-      this.stuck = this.stuck.filter(s => s.life < 7);
-      if (this.stuck.length > 700) this.stuck.splice(0, this.stuck.length - 700);
+      this.stuck = this.stuck.filter(s => s.life < 30);
+      if (this.stuck.length > 2200) this.stuck.splice(0, this.stuck.length - 2200);
     }
     tick(dt) {
       if (!this.w) return;
@@ -186,14 +171,14 @@
 
       // channel fill
       const gr = ctx.createLinearGradient(0, G.cy - G.hw, 0, G.cy + G.hw);
-      gr.addColorStop(0, 'rgba(110,231,183,0.07)');
+      gr.addColorStop(0, 'rgba(226,205,152,0.07)');
       gr.addColorStop(.5, `rgba(255,184,77,${0.02 + 0.05 * Vn})`);
-      gr.addColorStop(1, 'rgba(110,231,183,0.07)');
+      gr.addColorStop(1, 'rgba(226,205,152,0.07)');
       ctx.fillStyle = gr;
       ctx.fillRect(G.x0, G.cy - G.hw, G.x1 - G.x0, G.hw * 2);
 
       // flow chevrons
-      ctx.strokeStyle = 'rgba(170,215,195,0.10)';
+      ctx.strokeStyle = 'rgba(201,180,130,0.10)';
       ctx.lineWidth = 1.5;
       const sp = 70, off = (t * 60 * this.U) % sp;
       for (let x = G.x0 + off; x < G.x1; x += sp) {
@@ -207,16 +192,16 @@
       for (const s of [-1, 1]) {
         const y = G.cy + s * G.hw;
         ctx.save();
-        ctx.shadowColor = 'rgba(110,231,183,.8)'; ctx.shadowBlur = 14;
-        ctx.strokeStyle = '#34d399'; ctx.lineWidth = 3;
+        ctx.shadowColor = 'rgba(226,205,152,.8)'; ctx.shadowBlur = 14;
+        ctx.strokeStyle = '#c9a45c'; ctx.lineWidth = 3;
         ctx.beginPath(); ctx.moveTo(G.x0, y); ctx.lineTo(G.x1, y); ctx.stroke();
         ctx.restore();
       }
 
       // stuck dust
       for (const s of this.stuck) {
-        const a = 1 - s.life / 7;
-        ctx.fillStyle = `rgba(200,245,222,${a * .85})`;
+        const a = Math.min(1, s.life * 4) * (1 - s.life / 30);
+        ctx.fillStyle = `rgba(222,200,150,${a * .85})`;
         ctx.beginPath(); ctx.arc(s.x, s.y, s.r * .9, 0, TAU); ctx.fill();
       }
 
@@ -241,7 +226,7 @@
       // particles
       for (const p of this.parts) {
         const q = clamp(p.q, 0, 1);
-        const r = Math.round(lerp(150, 120, q)), g = Math.round(lerp(160, 240, q)), b = Math.round(lerp(158, 190, q));
+        const r = Math.round(lerp(150, 236, q)), g = Math.round(lerp(160, 210, q)), b = Math.round(lerp(150, 150, q));
         ctx.fillStyle = `rgba(${r},${g},${b},${lerp(.55, .95, q)})`;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, TAU); ctx.fill();
         if (p.px != null && !this.ambient) {
@@ -272,15 +257,15 @@
       }
 
       if (!this.ambient) {
-        ctx.font = '500 12px "JetBrains Mono", monospace';
-        ctx.fillStyle = 'rgba(110,231,183,.85)';
+        ctx.font = '500 12px "IBM Plex Mono", monospace';
+        ctx.fillStyle = 'rgba(226,205,152,.85)';
         ctx.textAlign = 'left';
         ctx.fillText('PLACA COLECTORA · 0 V', G.x0, G.cy - G.hw - 14);
         ctx.fillText('PLACA COLECTORA · 0 V', G.x0, G.cy + G.hw + 24);
         ctx.fillStyle = 'rgba(255,184,77,.9)';
         ctx.textAlign = 'center';
         ctx.fillText(this.V > 0 ? `ALAMBRES · ${this.V} kV` : 'ALAMBRES · SIN TENSIÓN', G.wires[2], G.cy - 22);
-        ctx.fillStyle = 'rgba(170,205,188,.8)';
+        ctx.fillStyle = 'rgba(201,180,130,.8)';
         ctx.save();
         ctx.translate(G.x0 - 30, G.cy); ctx.rotate(-Math.PI / 2);
         ctx.fillText('ENTRADA →', 0, 0);
@@ -313,14 +298,14 @@
       }
       ctx.clearRect(0, 0, w, h);
       // pipe walls
-      ctx.strokeStyle = 'rgba(170,215,195,.25)'; ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(201,180,130,.25)'; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(0, cy - ph - 10); ctx.lineTo(w, cy - ph - 10); ctx.moveTo(0, cy + ph + 10); ctx.lineTo(w, cy + ph + 10); ctx.stroke();
       // ESP box
       const bg = ctx.createLinearGradient(bx0, 0, bx1, 0);
-      bg.addColorStop(0, 'rgba(110,231,183,.05)'); bg.addColorStop(.5, 'rgba(255,184,77,.10)'); bg.addColorStop(1, 'rgba(110,231,183,.05)');
+      bg.addColorStop(0, 'rgba(226,205,152,.05)'); bg.addColorStop(.5, 'rgba(255,184,77,.10)'); bg.addColorStop(1, 'rgba(226,205,152,.05)');
       ctx.fillStyle = bg;
       ctx.fillRect(bx0, cy - ph - 30, bx1 - bx0, ph * 2 + 60);
-      ctx.strokeStyle = 'rgba(110,231,183,.5)'; ctx.lineWidth = 1.5;
+      ctx.strokeStyle = 'rgba(226,205,152,.5)'; ctx.lineWidth = 1.5;
       ctx.strokeRect(bx0, cy - ph - 30, bx1 - bx0, ph * 2 + 60);
       for (let i = 0; i < 4; i++) {
         const x = bx0 + (bx1 - bx0) * (.2 + i * .2);
@@ -340,20 +325,20 @@
         }
         if (p.x > w + 5 || p.dead) continue;
         const inBox = p.x > bx0 && p.cap;
-        ctx.fillStyle = inBox ? 'rgba(130,235,190,.9)' : (p.tone > .5 ? 'rgba(176,150,120,.85)' : 'rgba(140,140,150,.8)');
+        ctx.fillStyle = inBox ? 'rgba(236,214,160,.9)' : (p.tone > .5 ? 'rgba(176,150,120,.85)' : 'rgba(140,140,150,.8)');
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, TAU); ctx.fill();
         keep.push(p);
       }
       this.p = keep;
       this.flash = this.flash.filter(f => (f.l += dt) < .5);
       for (const f of this.flash) {
-        ctx.fillStyle = `rgba(110,231,183,${.6 * (1 - f.l / .5)})`;
+        ctx.fillStyle = `rgba(226,205,152,${.6 * (1 - f.l / .5)})`;
         ctx.beginPath(); ctx.arc(f.x, f.y, 2 + f.l * 10, 0, TAU); ctx.fill();
       }
-      ctx.font = '500 12px "JetBrains Mono", monospace'; ctx.textAlign = 'center';
+      ctx.font = '500 12px "IBM Plex Mono", monospace'; ctx.textAlign = 'center';
       ctx.fillStyle = 'rgba(176,150,120,.95)'; ctx.fillText('GAS CONTAMINADO', w * .18, cy - ph - 30);
       ctx.fillStyle = 'rgba(255,184,77,.95)'; ctx.fillText('PRECIPITADOR', (bx0 + bx1) / 2, cy - ph - 44);
-      ctx.fillStyle = 'rgba(94,240,176,.95)'; ctx.fillText('GAS MÁS LIMPIO', w * .82, cy - ph - 30);
+      ctx.fillStyle = 'rgba(239,232,214,.95)'; ctx.fillText('GAS MÁS LIMPIO', w * .82, cy - ph - 30);
     }
   }
 
@@ -379,7 +364,7 @@
         p.x += 45 * dt;
         const d = Math.hypot(p.x - cx, p.y - cy);
         p.q = clamp(p.q + dt * 2.5 * Math.exp(-d / 60), 0, 1);
-        ctx.fillStyle = `rgba(${lerp(150, 110, p.q)},${lerp(160, 231, p.q)},${lerp(158, 183, p.q)},.95)`;
+        ctx.fillStyle = `rgba(${lerp(150, 236, p.q)},${lerp(160, 210, p.q)},${lerp(150, 150, p.q)},.95)`;
         ctx.beginPath(); ctx.arc(p.x, p.y, 3.4, 0, TAU); ctx.fill();
         if (p.q > .5) { ctx.fillStyle = '#0f2b22'; ctx.font = 'bold 8px monospace'; ctx.textAlign = 'center'; ctx.fillText('+', p.x, p.y + 3); }
       }
@@ -393,7 +378,7 @@
       const top = 30, bot = h - 30, cy = h / 2;
       if (Math.random() < dt * 9) this.p.push({ x: -5, y: cy + rand(-30, 30), s: Math.random() < .5 ? -1 : 1 });
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = '#34d399'; ctx.lineWidth = 3; ctx.shadowColor = 'rgba(110,231,183,.8)'; ctx.shadowBlur = 10;
+      ctx.strokeStyle = '#c9a45c'; ctx.lineWidth = 3; ctx.shadowColor = 'rgba(226,205,152,.8)'; ctx.shadowBlur = 10;
       ctx.beginPath(); ctx.moveTo(0, top); ctx.lineTo(w, top); ctx.moveTo(0, bot); ctx.lineTo(w, bot); ctx.stroke();
       ctx.shadowBlur = 0;
       const keep = [];
@@ -403,12 +388,12 @@
         if (p.x < w + 5) keep.push(p);
         ctx.strokeStyle = 'rgba(255,184,77,.6)'; ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y + p.s * 14); ctx.stroke();
-        ctx.fillStyle = 'rgba(120,235,190,.95)'; ctx.beginPath(); ctx.arc(p.x, p.y, 3.2, 0, TAU); ctx.fill();
+        ctx.fillStyle = 'rgba(236,214,160,.95)'; ctx.beginPath(); ctx.arc(p.x, p.y, 3.2, 0, TAU); ctx.fill();
       }
       this.p = keep;
       this.st = this.st.filter(s => (s.l += dt) < 5);
-      for (const s of this.st) { ctx.fillStyle = `rgba(200,245,222,${1 - s.l / 5})`; ctx.beginPath(); ctx.arc(s.x, s.y, 2.6, 0, TAU); ctx.fill(); }
-      ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(255,184,77,.85)'; ctx.textAlign = 'right';
+      for (const s of this.st) { ctx.fillStyle = `rgba(222,200,150,${1 - s.l / 5})`; ctx.beginPath(); ctx.arc(s.x, s.y, 2.6, 0, TAU); ctx.fill(); }
+      ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.fillStyle = 'rgba(255,184,77,.85)'; ctx.textAlign = 'right';
       ctx.fillText('F = qE', w - 12, cy + 4);
     }
   }
@@ -429,10 +414,10 @@
         }
       }
       // hopper
-      ctx.strokeStyle = 'rgba(170,215,195,.3)'; ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(201,180,130,.3)'; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(px - 60, h - 44); ctx.lineTo(px - 16, h - 14); ctx.lineTo(px + 16, h - 14); ctx.lineTo(px + 60, h - 44); ctx.stroke();
       // plate
-      ctx.fillStyle = '#34d399'; ctx.fillRect(px - 3 + shake, 24, 6, h - 80);
+      ctx.fillStyle = '#c9a45c'; ctx.fillRect(px - 3 + shake, 24, 6, h - 80);
       // dust layer
       ctx.fillStyle = 'rgba(176,150,120,.85)';
       const lw = 2 + this.layer * 10;
@@ -440,7 +425,7 @@
       ctx.fillRect(px + 3 + shake, 24, lw, h - 80);
       this.fall = this.fall.filter(f => f.y < h - 18);
       for (const f of this.fall) { f.vy += 300 * dt; f.y += f.vy * dt; ctx.fillRect(f.x, f.y, 2.4, 2.4); }
-      if (cyc >= 3) { ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(170,205,188,.9)'; ctx.textAlign = 'left'; ctx.fillText('golpeteo', px + 26, 40); }
+      if (cyc >= 3) { ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.fillStyle = 'rgba(201,180,130,.9)'; ctx.textAlign = 'left'; ctx.fillText('golpeteo', px + 26, 40); }
     }
   }
 
@@ -507,11 +492,11 @@
         ctx.beginPath(); ctx.arc(d.x, d.y, 2.4, 0, TAU); ctx.fill();
       }
       // plates and wire
-      ctx.fillStyle = '#34d399'; ctx.fillRect(0, 0, 4, h); ctx.fillRect(w - 4, 0, 4, h);
+      ctx.fillStyle = '#c9a45c'; ctx.fillRect(0, 0, 4, h); ctx.fillRect(w - 4, 0, 4, h);
       ctx.fillStyle = '#ffd08a'; ctx.beginPath(); ctx.arc(cx, cy, 6, 0, TAU); ctx.fill();
-      ctx.font = '500 11px "JetBrains Mono", monospace'; ctx.textAlign = 'center';
+      ctx.font = '500 11px "IBM Plex Mono", monospace'; ctx.textAlign = 'center';
       ctx.fillStyle = 'rgba(255,208,138,.95)'; ctx.fillText('ϕ máx', cx, cy - 16);
-      ctx.fillStyle = 'rgba(110,231,183,.95)'; ctx.fillText('0 V', 22, h - 14); ctx.fillText('0 V', w - 22, h - 14);
+      ctx.fillStyle = 'rgba(226,205,152,.95)'; ctx.fillText('0 V', 22, h - 14); ctx.fillText('0 V', w - 22, h - 14);
     }
   }
 
@@ -667,6 +652,7 @@
     $$('[data-frag]', sl).forEach(f => f.classList.toggle('shown', back && !opts.fresh));
     sl.classList.add('active');
     cur = i;
+    document.body.dataset.theme = sl.classList.contains('paper') ? 'paper' : 'dark';
     requestAnimationFrame(() => canvases.forEach(c => c.resize()));
     const h = hookFor(sl); if (h) h.enter(sl);
     if (sl === gradSlide) active.add(sims.grad);
