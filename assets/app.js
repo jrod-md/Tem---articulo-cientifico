@@ -603,6 +603,7 @@
 
   /* ---------------- Calculator (eq. 24) ---------------- */
   (() => {
+    if (!$('#etaCurve')) return;
     const ids = ['sWp', 'sL', 'sU', 'sS'];
     const fmt = { sWp: v => v.toFixed(3) + ' m/s', sL: v => v.toFixed(2) + ' m', sU: v => v.toFixed(2) + ' m/s', sS: v => (v * 1000).toFixed(0) + ' mm' };
     const out = { sWp: '#cWp', sL: '#cL', sU: '#cU', sS: '#cS' };

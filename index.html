@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=40">
+<link rel="stylesheet" href="assets/style.css?v=41">
 </head>
 <body>
 
@@ -382,46 +382,6 @@
     </div>
   </section>
 
-  <!-- ======================= 14 TENDENCIAS (CALCULADORA) ======================= -->
-  <section class="slide" data-section="Eficiencia analítica" data-on="calc">
-    <div class="kicker" data-r="1"><span class="num">06</span> Lo que anticipa la fórmula</div>
-    <h2 data-r="2" style="font-size:60px">Competencia: llegar a la placa antes de salir</h2>
-    <div class="row" style="gap:40px;margin-top:22px">
-      <div class="card grow" data-r="3" style="flex:1.05">
-        <div class="ctrls">
-          <div class="ctrl"><label><span>W<sub>p</sub> · migración</span> <output id="cWp"></output></label><input type="range" id="sWp" min="0.01" max="0.30" step="0.005" value="0.08"></div>
-          <div class="ctrl"><label><span>L · longitud de placa</span> <output id="cL"></output></label><input type="range" id="sL" min="0.2" max="2" step="0.05" value="0.8"></div>
-          <div class="ctrl"><label><span>U<sub>in</sub> · velocidad del gas</span> <output id="cU"></output></label><input type="range" id="sU" min="0.5" max="3" step="0.05" value="1"></div>
-          <div class="ctrl"><label><span>S<sub>y</sub> · separación</span> <output id="cS"></output></label><input type="range" id="sS" min="0.06" max="0.15" step="0.005" value="0.115"></div>
-        </div>
-        <p class="note" style="margin-top:18px">Valores ilustrativos para explorar la ecuación (24); no son datos del artículo.</p>
-      </div>
-      <div class="grow" data-r="4" style="flex:1.25">
-        <div class="card" style="padding:22px 26px">
-          <div class="row" style="justify-content:space-between;align-items:flex-end">
-            <div class="readout"><div class="big" id="cEta">—</div><div class="lbl">eficiencia η</div></div>
-            <div class="mono muted" style="font-size:15.5px;text-align:right">exponente<br><span id="cX" style="color:var(--ink);font-size:24px">—</span></div>
-          </div>
-          <svg id="etaPlot" viewBox="0 0 560 220" style="width:100%;margin-top:14px">
-            <defs><linearGradient id="ef" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c2e36f" stop-opacity=".25"/><stop offset="1" stop-color="#c2e36f" stop-opacity="0"/></linearGradient></defs>
-            <g stroke="rgba(165, 215, 190,.1)"><line x1="40" y1="20" x2="550" y2="20"/><line x1="40" y1="100" x2="550" y2="100"/><line x1="40" y1="180" x2="550" y2="180"/></g>
-            <g font-family="JetBrains Mono" font-size="11" fill="#61786c"><text x="8" y="24">100%</text><text x="14" y="104">50%</text><text x="22" y="184">0</text><text x="520" y="205">x = 5</text><text x="40" y="205">0</text></g>
-            <path id="etaArea" fill="url(#ef)"/>
-            <path id="etaCurve" fill="none" stroke="#c2e36f" stroke-width="2.5"/>
-            <line id="etaV" stroke="#f0c35e" stroke-dasharray="4 4"/>
-            <circle id="etaDot" r="7" fill="#f0c35e" stroke="#04120d" stroke-width="3"/>
-          </svg>
-        </div>
-        <div class="trend" style="margin-top:16px">
-          <div class="t up" data-k="sWp"><span class="a">↑</span><span>Más migración W<sub>p</sub> → más η</span></div>
-          <div class="t up" data-k="sL"><span class="a">↑</span><span>Placa más larga L → más η</span></div>
-          <div class="t dn" data-k="sU"><span class="a">↓</span><span>Gas más rápido U<sub>in</sub> → menos η</span></div>
-          <div class="t dn" data-k="sS"><span class="a">↓</span><span>Mayor separación S<sub>y</sub> → menos η</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ======================= 15 VALIDACIÓN ======================= -->
   <section class="slide" data-section="Validación">
     <div class="split-5-7">
@@ -670,6 +630,6 @@
 <div id="lightbox"><img alt=""></div>
 
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script src="assets/app.js?v=40"></script>
+<script src="assets/app.js?v=41"></script>
 </body>
 </html>
